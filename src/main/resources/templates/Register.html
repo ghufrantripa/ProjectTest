@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/Register.css">
+  </head>
+  <body>
+    <div class="center">
+      <h1>Sign Up</h1>
+      <form method="POST" action="#" th:action="@{/register}" th:object="${user}">
+        <div class="txt_field">
+          <input th:field="*{name}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" required>
+          <label>Username</label>
+        </div>
+        <div class="txt_field">
+          <input th:field="*{email}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" required>
+          <label>Email</label>
+        </div>
+        <div class="txt_field">
+            <input th:field="*{password}" type="password" class="form-control" id="example-todo-title" aria-describedby="emailHelp" required>
+            <label>Password</label>
+          </div>
+          <div class="txt_field">
+            <input th:field="*{adress}" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" required>
+            <label>Adress</label>
+          </div>
+          
+        <input type="submit" value="Sign Up">
+        <div class="signup_link">
+            Allready have an account? <a href="templates/Login.html">Log in</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>

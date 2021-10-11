@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+}
+body{
+    background: #efefef;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(255, 217, 0);
+    padding: 5px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100; 
+}
+.logo{
+    width: 160px;
+    margin-right: 45px;
+}
+.nav-left{
+    display: flex;
+    align-items: center;
+}
+.nav-user-icon img{
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px;
+    margin-right: auto;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 5%;
+}
+.left-sidebar{
+    flex-basis: 25%;
+    position: sticky;
+    top: 70px;
+    align-self: flex-start;
+}
+.right-sidebar{
+    flex-basis: 25%;
+    position: sticky;
+    top: 70px;
+    align-self: flex-start;
+}
+.main-content{
+    flex-basis: 47%;
+    border-right: 1px solid var;
+    min-width: fit-content;
+    overflow: scroll;
+    flex: 0,5;
+}
+.category a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    color: #626262;
+    width: fit-content;
+}
+.category a img{
+    width: 30px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.category{
+    border-bottom: 1px solid #ccc;
+    font-size: 21px;
+}
+.search-box{
+    background: #fff;
+    width: 350px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+.search-box img{
+    width: 30px;
+}
+.search-box input{
+    width: 100%;
+    background: transparent;
+    padding: 10px;
+    outline: none;
+    border: 0;
+}
+.sidebar-trending{
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    margin-top: 30px;
+}
+.sidebar-title{
+    margin-top: 30px;
+}
+.content-header{
+    top: 0;
+    background-color: #fff;
+    z-index: 100;
+    border: 1px soolid var;
+    padding: 15px 20px;
+}
+.content-header h2{
+    font-size: 20px;
+    font-weight: 800;
+}
+.main-content::-webkit-scrollbar{
+    display: none;
+}
+.main-content{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.threadbox-input img{
+    border-radius: 50%;
+    height: 40px;
+}
+.threadbox{
+    padding-bottom: 10px;
+    border-bottom: 8 px solid var;
+    padding-right: 10px;
+}
+.threadbox form{
+    display: flex;
+    flex-direction: column;
+}
+.threadbox-input{
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.threadbox-input input{
+    flex: 1;
+    margin-left: 20px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.threadbox-threadbutton{
+    background-color: rgb(255, 217, 0);
+    border: none;
+    color: #fff;
+    font-weight: 900;
+    border-radius: 30px;
+    width: 80px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: auto;
+}
+
+.left-sidebar a:hover{
+    background: rgba(202, 200, 75, 0.1);
+    color: rgb(224, 226, 107);
+    border-radius: 30px;
+}
+.user-profile{
+    display: flex;
+    align-items: center;
+}
+.user-profile img{
+    width: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.user-profile p{
+    margin-bottom: -5px;
+    font-weight: 500;
+    color: #626262;
+}
+.user-profile small{
+    font-size: 12px;
+}
+.add-post-links{
+    display: flex;
+    margin-top: 10px;
+}
+.add-post-links a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #626262;
+    margin-right: 30px;
+    font-size: 13px;
+}
+.post-container{
+    width: 100%;
+    background: #fff;
+    border-radius: 6px;
+    padding: 20px;
+    color: #626262;
+    margin: 20px 0;
+}    
+.user-profile a{
+    text-decoration: none;
+    color: #626262;
+    font-size: 13px;  
+}
+.user-profile span{
+    font-size: 10px;
+    color: #9a9a9a;
+}
+.thread{
+    padding-top: 15px;
+    font-size: 13px;
+    width: 70vh;
+    
+}
+.threadbox textarea{
+    width: 20vh;
+}
+.nav-user-icon h1{
+    display: inline-block;
+    font-size: 20px;
+}
+.footer-basic {
+    padding:40px 0;
+    background-color:#ffffff;
+    color:#4b4c4d;
+  }
+  .footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:#aaa;
+    margin-bottom:0;
+  }
+  .button .a {
+      text-align: right;
+  }

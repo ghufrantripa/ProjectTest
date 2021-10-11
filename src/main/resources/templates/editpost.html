@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create your thread!</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="threadbox">
+       <form method="POST" action="#" th:action="@{/post/store}" th:object="${post}">
+           
+           <input type="hidden" th:field="*{id}" />
+            <div class="threadbox-input">
+                <img src="image/pp.png" alt="">
+                <textarea th:field="*{contentpost}" name="contentpost" style="width: 100vh; height: 60vh;"  rows="3" placeholder="What's up today?"></textarea>
+                <div class="add-post-links">
+                    <label for="sel1">Category:</label>
+                    <select th:field="*{category}" class="form-control" id="sel1">
+                        <th:block th:each="category : ${category} ">
+                            <option th:text="${category.name}" th:value="${category.id}"></option>
+                            
+                        </th:block>
+                        
+                    </select>
+                </div>
+            </div>
+            <button class="threadbox-threadbutton">Edit</button>
+        </form>
+    </div>
+</body>
+</html>

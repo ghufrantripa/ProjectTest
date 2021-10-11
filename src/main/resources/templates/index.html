@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        
+        
+        <!-- LINK BOOTSTRAP -->
+        <link rel="stylesheet" href="css/index.css">
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+    <body>
+
+        <nav>
+            <div class="navleft">
+                <img src="/css/image/blitz.png" class="logo">            
+            </div>
+            <div class="right"></div>
+            <div class="nav-user-icon">
+                <img src="/css/image/pp.png">
+                <h1>Hello, <span th:text="${session.name}"></span>!</h1>
+            </div>
+
+        </nav>
+
+        <div class="container">        
+            <div class="left-sidebar">
+                <div class="category">
+                    <!--GET MAPPING-->
+                    <button type="submit" th:href="@{/post/create}" style="cursor: pointer" class="threadbox-threadbutton">Create</button>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="content-header">
+                    <h2>Home</h2>
+                </div>
+
+                <div class="threadbox">
+                </div>
+                <div th:each="post : ${list}" class="table-post">
+                    <div class="post-container">
+                        <div class="user-profile">
+                            <img src="/css/image/pp.png">
+                            <div class="button">
+                                <p th:text="${ post.user.name }">Brfootball</p> 
+                                <span style="float: right;">
+                                    <a th:if="(${session.id} == *{post.user.id} )" th:href="@{/post/{id}/edit(id=${ post.id })}"  class="btn btn-info text-white ">
+                                            <i class='bx bx-pencil'></i>
+                                    </a>
+                                    <form th:if="(${session.id} == *{post.user.id} )" onSubmit="return confirm('Do you really want to delete Post?')" method="POST" action="#" th:action="@{/post/{id}/delete(id=${ post.id })}">
+                                        <button type="submit" class="btn btn-danger text-white "><i class='bx bx-trash'></i></button>
+                                    </form>
+                                </span>
+                                <a th:text="${ post.category.name }">Sports</a>
+                                
+                            <!--    <input type="text" th:value="${session.id}"/> -->
+                                
+                            </div>
+                        </div>
+                        <div class="thread">
+                            <p th:text="${ post.contentpost}" >'My heart is with Mexico’ Bendera Meksiko
+
+                                20-year-old LA Galaxy defender Julian Araujo has decided to represent Mexico after FIFA approved his switch in allegiance from the USA. 
+
+                                He appeared at the U18, U19, U20, U23 levels for the USMNT and has one senior cap.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-container">
+                    <div class="user-profile">
+                        <img src="/css/image/pp.png">
+                        <div>
+                            <p>Goal</p>
+                            <a href="Sports.html">Sports</a>
+                            .
+                            <span>Oct 5 2021, 12:00 pm</span>
+                        </div>
+                    </div>
+                    <div class="thread">
+                        <p>Spanyol berhasil menjadi juara Euro U-21 di bawah kendali eks pelatih timnas Indonesia, Luis Milla. Kemana perginya skuad bertabur pemain berbakat itu? Mata
+
+                            Ada yang sudah memutuskan gantung sepatu Wajah berteriak ketakutan.</p>
+                    </div>
+                </div>
+
+                <div class="post-container">
+                    <div class="user-profile">
+                        <img src="/css/image/pp.png">
+                        <div>
+                            <p>JualMobilantik99</p>
+                            <a href="automotive.html">Automotive</a>
+                            .
+                            <span>Oct 5 2021, 13:00 pm</span>
+                        </div>
+                    </div>
+                    <div class="thread">
+                        <p>Mazda luce 929 th 82 interior ori cat ori ss lengkap hidup an sendiri mobil dipakai harian yang minat hubungi tlp/wa 087855886691 harga 50 juta lokasi sidoarjo.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="right-sidebar">
+                <div class="sidebar-title">
+                    <h3>Advertisement</h3>
+                    <h6>Call +021 123</h6>
+                </div>
+                <img src="/css/image/iklan-1.jpg" class="sidebar-trending">
+                <a href="">Sate Mantap Lezat</a>
+                <img src="/css/image/iklan-2.jpg" class="sidebar-trending">
+                <a href="">Gaskeun lah cuk</a>
+                <img src="/css/image/iklan-3.jpg" class="sidebar-trending">
+                <a href="">Jangan Dicoblos ges</a>
+
+            </div>
+        </div>
+    </body>
+    <div class="footer-basic">
+        <footer>
+            <p class="copyright">Project Group 12 © 2021</p>
+        </footer>
+    </div>
+</html>
