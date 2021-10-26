@@ -51,22 +51,30 @@ and open the template in the editor.
                 <div th:each="post : ${list}" class="table-post">
                     <div class="post-container">
                         <div class="user-profile">
-                            <img src="/css/image/pp.png">
-                            <div class="button">
-                                <p th:text="${ post.user.name }">Brfootball</p> 
-                                <span style="float: right;">
-                                    <a th:if="(${session.id} == *{post.user.id} )" th:href="@{/post/{id}/edit(id=${ post.id })}"  class="btn btn-info text-white ">
-                                            <i class='bx bx-pencil'></i>
-                                    </a>
-                                    <form th:if="(${session.id} == *{post.user.id} )" onSubmit="return confirm('Do you really want to delete Post?')" method="POST" action="#" th:action="@{/post/{id}/delete(id=${ post.id })}">
-                                        <button type="submit" class="btn btn-danger text-white "><i class='bx bx-trash'></i></button>
-                                    </form>
-                                </span>
-                                <a th:text="${ post.category.name }">Sports</a>
+                            <div class="detail-user" style="display: flex">
+                                <img src="/css/image/pp.png">
                                 
+                                <div style="display: block; width: 80%;">
+                                    <div class="button" style="display: flex;float: right; padding-top: 10px">
+                                
+                                        <a th:if="(${session.id} == *{post.user.id} )" th:href="@{/post/{id}/edit(id=${ post.id })}"  class="btn btn-info text-white " >
+                                                <i class='bx bx-pencil' ></i>
+                                        </a>
+                                        <form th:if="(${session.id} == *{post.user.id} )" onSubmit="return confirm('Do you really want to delete Post?')" method="POST" action="#" th:action="@{/post/{id}/delete(id=${ post.id })}">
+                                            <button type="submit" class="btn btn-danger text-white "><i class='bx bx-trash'></i></button>
+                                        </form>
+                                    
+                                    </div>
+                                    <p th:text="${ post.user.name }">Brfootball</p>
+                                    <a th:text="${ post.category.name }">Sports</a>
+                                    
+                                    
+                                </div>
+                            </div>
+                            
+                            
                             <!--    <input type="text" th:value="${session.id}"/> -->
                                 
-                            </div>
                         </div>
                         <div class="thread">
                             <p th:text="${ post.contentpost}" >'My heart is with Mexico’ Bendera Meksiko

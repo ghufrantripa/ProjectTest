@@ -5,8 +5,6 @@
  */
 package com.blitz.webforum.controllers;
 
-import com.blitz.webforum.interfaces.CategoryInterface;
-import com.blitz.webforum.interfaces.PostInterface;
 import com.blitz.webforum.models.Post;
 import com.blitz.webforum.models.Category;
 import com.blitz.webforum.models.User;

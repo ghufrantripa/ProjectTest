@@ -162,7 +162,7 @@ nav{
     border-radius: 30px;
 }
 .user-profile{
-    display: flex;
+    display: block;
     align-items: center;
 }
 .user-profile img{
