@@ -42,7 +42,7 @@ public class WebMvcUserTests {
 
         String email = RandomString.make(10).toLowerCase() + "@mail.com";
         String password = RandomString.make(10).toLowerCase();
-        
+
         User user = new User();
         user.setEmail(email);
         user.setName("lala");
@@ -54,7 +54,7 @@ public class WebMvcUserTests {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(MockMvcResultMatchers.redirectedUrl("/login"));
     }
-    
+
     @Test
     public void testRegisterWithoutEmail() throws Exception {
         mockMvc.perform(get("/register"))
@@ -65,7 +65,7 @@ public class WebMvcUserTests {
 
         User user = new User();
         user.setEmail("");
-        user.setName("Siapa");
+        user.setName("lala");
         user.setPassword(password);
         user.setAdress("jalan");
 
@@ -82,7 +82,7 @@ public class WebMvcUserTests {
                                 .attribute("danger", "Email cannot be null!")
                 );
     }
-    
+
     @Test
     public void testRegisterWithoutName() throws Exception {
         mockMvc.perform(get("/register"))
@@ -90,9 +90,9 @@ public class WebMvcUserTests {
 
         String email = RandomString.make(10).toLowerCase() + "@mail.com";
         String password = RandomString.make(10).toLowerCase();
-        
+
         String adress = "";
-        
+
         User user = new User();
         user.setEmail(email);
         user.setName("");
@@ -112,7 +112,7 @@ public class WebMvcUserTests {
                                 .attribute("danger", "Name cannot be null!")
                 );
     }
-    
+
     @Test
     public void testRegisterWithoutPassword() throws Exception {
         mockMvc.perform(get("/register"))
@@ -120,10 +120,10 @@ public class WebMvcUserTests {
 
         String email = RandomString.make(10).toLowerCase() + "@mail.com";
         String password = RandomString.make(10).toLowerCase();
-        
+
         String name = "lala";
         String adress = "jalan";
-        
+
         User user = new User();
         user.setEmail(email);
         user.setName(name);
@@ -143,7 +143,7 @@ public class WebMvcUserTests {
                                 .attribute("danger", "Password cannot be null!")
                 );
     }
-    
+
     @Test
     public void testRegisterWithoutAdress() throws Exception {
         mockMvc.perform(get("/register"))
@@ -151,9 +151,9 @@ public class WebMvcUserTests {
 
         String email = RandomString.make(10).toLowerCase() + "@mail.com";
         String password = RandomString.make(10).toLowerCase();
-        
+
         String name = "lala";
-        
+
         User user = new User();
         user.setEmail(email);
         user.setName(name);
@@ -178,10 +178,10 @@ public class WebMvcUserTests {
     public void testRegisterThenLogin() throws Exception {
         mockMvc.perform(get("/register"))
                 .andExpect(status().isOk());
-        
+
         String email = RandomString.make(10).toLowerCase() + "@mail.com";
         String password = RandomString.make(10).toLowerCase();
-       
+
         User user = new User();
         user.setEmail(email);
         user.setName("lala");
@@ -196,11 +196,11 @@ public class WebMvcUserTests {
         mockMvc.perform(get("/login"))
                 .andExpect(status().isOk());
 
-        
+
         User userLogin = new User();
         userLogin.setEmail(email);
         userLogin.setPassword(password);
-        
+
         mockMvc.perform(post("/login")
                 .flashAttr("user", userLogin))
                 .andExpect(status().is3xxRedirection())
