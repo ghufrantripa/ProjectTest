@@ -68,7 +68,7 @@ public class UserIntegrationTests {
     public void createUserTestWithEmptyEmail() throws Exception {
         Throwable e = null;
         String message = null;
-  
+
         try {
             User user = new User();
             user.setEmail("");
@@ -77,17 +77,17 @@ public class UserIntegrationTests {
 
             when(repository.save(user))
                     .thenThrow(new Exception("Email cannot be null!"));
-            
+
             service.register(user);
         } catch (Exception ex) {
             e = ex;
             message = ex.getMessage();
         }
-       
+
         Assertions.assertTrue(e instanceof Exception);
         //Assertions.assertEquals("Email cannot be null!", message);
     }
-    
+
     @Test
     public void authTest() throws Exception {
 

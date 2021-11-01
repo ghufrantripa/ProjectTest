@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+        
     <div class="threadbox">
         <form method="POST" action="#" th:action="@{/post/store}" th:object="${post}">
+            <div class="alert alert-danger" th:if="${danger}">
+             <span th:text="${danger}"></span>
+        </div>
             <div class="threadbox-input">
                 <img src="image/pp.png" alt="">
                 <textarea th:field="*{contentpost}" name="contentpost" style="width: 100vh; height: 60vh;"  rows="3" placeholder="What's up today?"></textarea>

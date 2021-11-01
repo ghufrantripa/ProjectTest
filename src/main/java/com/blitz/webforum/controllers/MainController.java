@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
@@ -57,18 +58,26 @@ public class MainController {
         
         Post post = new Post();
         model.addAttribute("post", post);
+        
 
         return "create";
     }
 
     @PostMapping("/post/store")
-    public String storePost(@ModelAttribute("post") Post post, HttpServletRequest request) {
+    public String storePost(@ModelAttribute("post") Post post, RedirectAttributes ra, HttpServletRequest request)throws Exception {
         HttpSession session = request.getSession(true);
+        
+        if (post.getContentpost().equals("")) {
+            ra.addFlashAttribute("danger", "ContentPost cannot be null!");
+            return "redirect:/post/create";
+        }
         
         User user = new User();
         user.setId((long) session.getAttribute("id"));
         
         post.setUser(user);
+        
+       
 
         postService.store(post);
         return "redirect:/";
